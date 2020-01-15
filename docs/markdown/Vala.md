@@ -237,7 +237,7 @@ dependencies = [
     dependency('glib-2.0'),
     dependency('gobject-2.0'),
     meson.get_compiler('c').find_library('foo'),
-    meson.get_compiler('vala').find_library('foo', dir: vapi_dir),
+    meson.get_compiler('vala').find_library('foo', dirs: vapi_dir),
 ]
 
 sources = files('app.vala')
@@ -247,7 +247,7 @@ executable('app_name', sources, dependencies: dependencies)
 The `find_library()` method of the C compiler object will try to find the C
 header files and the library to link with.
 
-The `find_library()` method of the Vala compiler object needs to have the `dir`
+The `find_library()` method of the Vala compiler object needs to have the `dirs`
 keyword added to include the project VAPI directory. This is not added
 automatically by `add_project_arguments()`.
 
